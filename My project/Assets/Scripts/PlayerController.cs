@@ -18,6 +18,12 @@ public class PlayerController : MonoBehaviour
     public bool hasRocketEquipped;
     public bool hasGun;
     public bool hasGunEquipped;
+    public bool hasShotgun;
+    public bool hasShotgunEquipped;
+    public bool hasBulletStorm;
+    public bool hasBulletStormEquipped;
+
+
 
     public Vector3 SpawnPoint;
 
@@ -85,23 +91,53 @@ public class PlayerController : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.Alpha1))
         {
             hasGunEquipped = true;
-            hasRocketEquipped = false;
             hasShieldEquipped = false;
+            hasShotgunEquipped = false;
+            hasRocketEquipped = false;
+            hasBulletStormEquipped = false;
         }
 
         if (Input.GetKeyDown(KeyCode.Alpha2))
         {
             hasGunEquipped = false;
-            hasRocketEquipped = true;
+            hasShotgunEquipped = true;
+            hasRocketEquipped = false;
             hasShieldEquipped = false;
+            hasBulletStormEquipped = false;
+
         }
 
         if (Input.GetKeyDown(KeyCode.Alpha3))
         {
             hasGunEquipped = false;
+            hasShotgunEquipped = false;
+            hasRocketEquipped = true;
+            hasShieldEquipped = false;
+            hasBulletStormEquipped = false;
+
+        }
+
+        if (Input.GetKeyDown(KeyCode.Alpha4))
+        {
+            hasGunEquipped = false;
+            hasShotgunEquipped = false;
             hasRocketEquipped = false;
             hasShieldEquipped = true;
+            hasBulletStormEquipped = false;
+
         }
+
+        if (Input.GetKeyDown(KeyCode.Alpha5))
+        {
+            hasGunEquipped = false;
+            hasShotgunEquipped = false;
+            hasRocketEquipped = false;
+            hasShieldEquipped = false;
+            hasBulletStormEquipped = true;
+
+        }
+
+
     }
 
 

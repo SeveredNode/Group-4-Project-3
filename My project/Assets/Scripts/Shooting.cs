@@ -19,8 +19,11 @@ public class Shooting : MonoBehaviour
     public float secondCounter;
     public float gunFireRate; //fire every "fireRate" seconds
     public float rocketFireRate;
+    public float shotgunFireRate;
     public bool mouseButtonDown;
-
+    Transform scatterShot1;
+    Transform scatterShot2;
+    float fireAngle;
 
 
     // Start is called before the first frame update
@@ -29,6 +32,8 @@ public class Shooting : MonoBehaviour
         Camera = Camera.main;
         playerScript = GameObject.Find("Player").GetComponent<PlayerController>();
         mouseButtonDown = false;
+        scatterShot1 = transform;
+        scatterShot2 = transform;
     }
 
     private void Start()
@@ -45,9 +50,9 @@ public class Shooting : MonoBehaviour
 
         Vector3 AimerRotation = AimerLocation - transform.position;
 
-        float FireAngle = Mathf.Atan2(AimerRotation.y, AimerRotation.x) * Mathf.Rad2Deg;
+        fireAngle = Mathf.Atan2(AimerRotation.y, AimerRotation.x) * Mathf.Rad2Deg;
 
-        transform.rotation = Quaternion.Euler(0f, 0f, FireAngle);
+        transform.rotation = Quaternion.Euler(0f, 0f, fireAngle);
 
         ManageMouse();
 
@@ -81,18 +86,47 @@ public class Shooting : MonoBehaviour
                 }
             }
 
-
-            if (playerScript.hasRocketEquipped && playerScript.hasRocket)
+            if (playerScript.hasShotgunEquipped && playerScript.hasShotgun)
             {
-                if (secondCounter >= rocketFireRate)
+                bool shoot = true;
+
+                if (secondCounter >= shotgunFireRate)
                 {
-                    Instantiate(basicBullet, BulletSpawn.position, transform.rotation);
+                    if (shoot)
+                    {
+                        Instantiate(basicBullet, BulletSpawn.position, transform.rotation);
+                    }
+
+                    if (shoot)
+                    {
+                        scatterShot1.rotation = Quaternion.Euler(0, 0, fireAngle + 10);
+                        Instantiate(basicBullet, BulletSpawn.position, scatterShot1.rotation);
+                    }
+
+                    if (shoot)
+                    {
+                        scatterShot2.rotation = Quaternion.Euler(0, 0, fireAngle - 10);
+                        Instantiate(basicBullet, BulletSpawn.position, scatterShot2.rotation);
+                    }
                     secondCounter = 0f;
                     frameCounter = 0;
                 }
             }
 
 
+        }
+
+        if (Input.GetMouseButtonDown(0))
+        {
+            if (playerScript.hasRocketEquipped && playerScript.hasRocket)
+            {
+                if (secondCounter >= rocketFireRate)
+                {
+                    Instantiate(rocket, BulletSpawn.position, transform.rotation);
+                    secondCounter = 0f;
+                    frameCounter = 0;
+                }
+            }
         }
         
     }
