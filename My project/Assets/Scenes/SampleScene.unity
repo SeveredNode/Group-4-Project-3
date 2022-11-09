@@ -313,7 +313,8 @@ MonoBehaviour:
   player: {fileID: 1006637885}
   frameCounter: 0
   secondCounter: 0
-  fireRate: 0.2
+  gunFireRate: 0.1
+  rocketFireRate: 0
   mouseButtonDown: 0
 --- !u!1 &519420028
 GameObject:
@@ -688,15 +689,18 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1361880e70781854db17181bf8264b99, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  MoveSpeed: 5
+  MoveSpeed: 8
   MoveDirection: 0
   JumpHeight: 15
   IsJumping: 0
   DoubleJumpReady: 0
   Health: 0
   hasShield: 0
+  hasShieldEquipped: 0
   hasRocket: 0
+  hasRocketEquipped: 0
   hasGun: 0
+  hasGunEquipped: 0
   SpawnPoint: {x: 0, y: 0, z: 0}
 --- !u!70 &1006637892
 CapsuleCollider2D:

@@ -17,7 +17,8 @@ public class Shooting : MonoBehaviour
     public GameObject player;
     public int frameCounter;
     public float secondCounter;
-    public float fireRate; //fire every "fireRate" seconds
+    public float gunFireRate; //fire every "fireRate" seconds
+    public float rocketFireRate;
     public bool mouseButtonDown;
 
 
@@ -70,15 +71,27 @@ public class Shooting : MonoBehaviour
         if (mouseButtonDown)
         {
 
-            if (playerScript.hasGun)
+            if (playerScript.hasGunEquipped && playerScript.hasGun)
             {
-                if (secondCounter >= fireRate)
+                if (secondCounter >= gunFireRate)
                 {
                     Instantiate(basicBullet, BulletSpawn.position, transform.rotation);
                     secondCounter = 0f;
                     frameCounter = 0;
                 }
             }
+
+
+            if (playerScript.hasRocketEquipped && playerScript.hasRocket)
+            {
+                if (secondCounter >= rocketFireRate)
+                {
+                    Instantiate(basicBullet, BulletSpawn.position, transform.rotation);
+                    secondCounter = 0f;
+                    frameCounter = 0;
+                }
+            }
+
 
         }
         

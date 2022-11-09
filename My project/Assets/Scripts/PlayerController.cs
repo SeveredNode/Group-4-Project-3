@@ -11,9 +11,14 @@ public class PlayerController : MonoBehaviour
     public bool IsJumping;
     public bool DoubleJumpReady;
     public float Health;
+
     public bool hasShield;
+    public bool hasShieldEquipped;
     public bool hasRocket;
+    public bool hasRocketEquipped;
     public bool hasGun;
+    public bool hasGunEquipped;
+
     public Vector3 SpawnPoint;
 
     // Start is called before the first frame update
@@ -38,8 +43,24 @@ public class PlayerController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        ManageMovement();
+        ManageWeaponSwapping();
+        
+
+        if (Health <= 0)
+        {
+            KillPlayer();
+        }
 
 
+
+    }
+
+
+
+
+    void ManageMovement()
+    {
         MoveDirection = Input.GetAxis("Horizontal");
 
         RB.velocity = new Vector2(MoveSpeed * MoveDirection, RB.velocity.y);
@@ -56,15 +77,33 @@ public class PlayerController : MonoBehaviour
             RB.AddForce(Vector2.up * JumpHeight, ForceMode2D.Impulse);
             DoubleJumpReady = false;
         }
+    }
 
-        if (Health <= 0)
+
+    void ManageWeaponSwapping()
+    {
+        if (Input.GetKeyDown(KeyCode.Alpha1))
         {
-            KillPlayer();
+            hasGunEquipped = true;
+            hasRocketEquipped = false;
+            hasShieldEquipped = false;
         }
 
+        if (Input.GetKeyDown(KeyCode.Alpha2))
+        {
+            hasGunEquipped = false;
+            hasRocketEquipped = true;
+            hasShieldEquipped = false;
+        }
 
-
+        if (Input.GetKeyDown(KeyCode.Alpha3))
+        {
+            hasGunEquipped = false;
+            hasRocketEquipped = false;
+            hasShieldEquipped = true;
+        }
     }
+
 
     private void OnTriggerEnter2D(Collider2D other)
     {
