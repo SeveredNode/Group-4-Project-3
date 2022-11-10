@@ -9,6 +9,9 @@ TagManager:
   - Shield
   - Explosion
   - Enemy
+  - BulletStormBullet
+  - Rocket
+  - ShotgunPellet
   layers:
   - Default
   - TransparentFX
