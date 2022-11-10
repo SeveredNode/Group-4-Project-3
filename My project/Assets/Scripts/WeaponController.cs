@@ -125,10 +125,6 @@ public class WeaponController : MonoBehaviour
             }
 
 
-        }
-
-        if (Input.GetMouseButtonDown(0))
-        {
             if (playerScript.hasRocketEquipped && playerScript.hasRocket)
             {
                 if (secondCounter >= rocketFireRate)
@@ -138,7 +134,13 @@ public class WeaponController : MonoBehaviour
                     frameCounter = 0;
                 }
             }
+
+
         }
+
+        
+           
+        
 
     }
 
