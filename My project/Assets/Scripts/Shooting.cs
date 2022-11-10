@@ -5,7 +5,7 @@ using UnityEngine;
 public class Shooting : MonoBehaviour
 {
 
-    
+
     private Transform BulletTransform;
     private Camera Camera;
     public GameObject Player;
@@ -16,6 +16,7 @@ public class Shooting : MonoBehaviour
     PlayerController playerScript;
     public GameObject player;
     public int frameCounter;
+    public int frameCounterBulletStorm;
     public float secondCounter;
     public float gunFireRate; //fire every "fireRate" seconds
     public float rocketFireRate;
@@ -24,6 +25,7 @@ public class Shooting : MonoBehaviour
     Transform scatterShot1;
     Transform scatterShot2;
     float fireAngle;
+    public bool bulletStormActive;
 
 
     // Start is called before the first frame update
@@ -38,7 +40,7 @@ public class Shooting : MonoBehaviour
 
     private void Start()
     {
-        
+
     }
 
     // Update is called once per frame
@@ -46,19 +48,13 @@ public class Shooting : MonoBehaviour
     {
         secondCounter = frameCounter / 50f;
 
-        Vector3 AimerLocation = Camera.ScreenToWorldPoint(Input.mousePosition);
-
-        Vector3 AimerRotation = AimerLocation - transform.position;
-
-        fireAngle = Mathf.Atan2(AimerRotation.y, AimerRotation.x) * Mathf.Rad2Deg;
-
-        transform.rotation = Quaternion.Euler(0f, 0f, fireAngle);
+        ManageMouseAiming();
 
         ManageMouse();
 
         Shoot();
 
-       
+        
 
 
     }
@@ -67,6 +63,7 @@ public class Shooting : MonoBehaviour
     private void FixedUpdate()
     {
         frameCounter++;
+        ShootBulletStorm();
     }
 
 
@@ -128,7 +125,7 @@ public class Shooting : MonoBehaviour
                 }
             }
         }
-        
+
     }
 
     void ManageMouse()
@@ -145,5 +142,41 @@ public class Shooting : MonoBehaviour
     }
 
 
+    void ShootBulletStorm()
+    {
+        if (playerScript.hasBulletStormEquipped && playerScript.hasBulletStorm)
+        {
 
+            bulletStormActive = true;
+            fireAngle = fireAngle + 30;
+            
+            transform.rotation = Quaternion.Euler(0f, 0f, fireAngle);
+
+            if (secondCounter >= .2)
+            {
+                Instantiate(basicBullet, BulletSpawn.position, transform.rotation);
+                secondCounter = 0;
+            }
+
+        }
+
+        if (playerScript.hasBulletStormEquipped == false)
+        {
+            bulletStormActive = false;
+        }
+    }
+
+    void ManageMouseAiming()
+    {
+        if (bulletStormActive == false)
+        {
+            Vector3 AimerLocation = Camera.ScreenToWorldPoint(Input.mousePosition);
+
+            Vector3 AimerRotation = AimerLocation - transform.position;
+
+            fireAngle = Mathf.Atan2(AimerRotation.y, AimerRotation.x) * Mathf.Rad2Deg;
+
+            transform.rotation = Quaternion.Euler(0f, 0f, fireAngle);
+        }
+    }
 }
