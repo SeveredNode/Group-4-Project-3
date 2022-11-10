@@ -17,16 +17,16 @@ public class EnemyController : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        if (health <= 0)
-        {
-            Destroy(gameObject);
-        }
+        
     }
 
     // Update is called once per frame
     void Update()
     {
-        
+        if (health <= 0)
+        {
+            Destroy(gameObject);
+        }
     }
 
 
