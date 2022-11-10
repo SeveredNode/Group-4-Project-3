@@ -11,6 +11,7 @@ public class PlayerController : MonoBehaviour
     public bool IsJumping;
     public bool DoubleJumpReady;
     public float Health;
+    public float bashForce;
 
     public bool hasShield;
     public bool hasShieldEquipped;
@@ -23,6 +24,11 @@ public class PlayerController : MonoBehaviour
     public bool hasBulletStorm;
     public bool hasBulletStormEquipped;
 
+    public WeaponController weaponScript;
+    
+
+    public int frameCounter;
+
 
 
     public Vector3 SpawnPoint;
@@ -31,6 +37,8 @@ public class PlayerController : MonoBehaviour
     void Start()
     {
         SpawnPoint = transform.position;
+        frameCounter = 1;
+        weaponScript = GameObject.Find("ProjectileAimer").GetComponent<WeaponController>();
     }
 
     private void Awake()
@@ -49,9 +57,11 @@ public class PlayerController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        
+
         ManageMovement();
         ManageWeaponSwapping();
-        
+        ShieldBash();
 
         if (Health <= 0)
         {
@@ -62,7 +72,10 @@ public class PlayerController : MonoBehaviour
 
     }
 
-
+    private void FixedUpdate()
+    {
+        
+    }
 
 
     void ManageMovement()
@@ -117,7 +130,7 @@ public class PlayerController : MonoBehaviour
 
         }
 
-        if (Input.GetKeyDown(KeyCode.Alpha4))
+        if (Input.GetKeyDown(KeyCode.Alpha4) && weaponScript.shieldCooldown <= weaponScript.shieldTimerCount)
         {
             hasGunEquipped = false;
             hasShotgunEquipped = false;
@@ -179,6 +192,17 @@ public class PlayerController : MonoBehaviour
         IsJumping = false;
         DoubleJumpReady = false;
 
+    }
+
+    void ShieldBash()
+    {
+        if (hasShieldEquipped && Input.GetKeyDown(KeyCode.LeftShift))
+        {
+            if(MoveDirection > 0)
+            {
+                RB.AddForce(Vector2.right * bashForce, ForceMode2D.Impulse);
+            }
+        }
     }
 
 }

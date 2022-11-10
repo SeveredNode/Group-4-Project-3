@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Shooting : MonoBehaviour
+public class WeaponController : MonoBehaviour
 {
 
 
@@ -29,6 +29,11 @@ public class Shooting : MonoBehaviour
     public bool bulletStormActive;
     public float bulletStormRotationSpeed;
     public float bulletStormFireRate;
+    public GameObject shieldObject;
+    public float shieldCooldown;
+    public float shieldTimerCount;
+    public int shieldTimerFrames;
+    public bool shieldReady;
 
 
     // Start is called before the first frame update
@@ -40,6 +45,7 @@ public class Shooting : MonoBehaviour
         scatterShot1 = transform;
         scatterShot2 = transform;
         fireAngle2 = 1f;
+        shieldTimerFrames = 1;
     }
 
     private void Start()
@@ -51,6 +57,7 @@ public class Shooting : MonoBehaviour
     void Update()
     {
         secondCounter = frameCounter / 50f;
+        shieldTimerCount = shieldTimerFrames / 50f;
 
         ManageMouseAiming();
 
@@ -60,6 +67,7 @@ public class Shooting : MonoBehaviour
 
         ShootBulletStorm();
 
+        ManageShield();
 
     }
 
@@ -67,6 +75,7 @@ public class Shooting : MonoBehaviour
     private void FixedUpdate()
     {
         frameCounter++;
+        shieldTimerFrames++;
         fireAngle2 = fireAngle2 + bulletStormRotationSpeed;
     }
 
@@ -184,4 +193,20 @@ public class Shooting : MonoBehaviour
             transform.rotation = Quaternion.Euler(0f, 0f, fireAngle);
         }
     }
+
+    void ManageShield()
+    {
+        if(shieldTimerCount >= shieldCooldown && playerScript.hasShieldEquipped)
+        {
+
+            Instantiate(shieldObject, transform.position, transform.rotation);
+            shieldTimerCount = 0;
+            shieldTimerFrames = 0;
+
+        }
+
+        
+    }
+
+
 }

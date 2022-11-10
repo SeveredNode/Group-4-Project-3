@@ -319,8 +319,12 @@ MonoBehaviour:
   shotgunFireRate: 0.5
   mouseButtonDown: 0
   bulletStormActive: 0
-  bulletStormRotationSpeed: 30
+  bulletStormRotationSpeed: 15
   bulletStormFireRate: 0.01
+  shieldObject: {fileID: 7938247928140354352, guid: 9ca0b5534ad0f2241b03c32487ed73c3, type: 3}
+  shieldCooldown: 10
+  shieldTimerCount: 0
+  shieldTimerFrames: 0
 --- !u!1 &519420028
 GameObject:
   m_ObjectHideFlags: 0
@@ -700,6 +704,7 @@ MonoBehaviour:
   IsJumping: 0
   DoubleJumpReady: 0
   Health: 0
+  bashForce: 0
   hasShield: 0
   hasShieldEquipped: 0
   hasRocket: 0
@@ -710,6 +715,8 @@ MonoBehaviour:
   hasShotgunEquipped: 0
   hasBulletStorm: 0
   hasBulletStormEquipped: 0
+  weaponScript: {fileID: 0}
+  frameCounter: 0
   SpawnPoint: {x: 0, y: 0, z: 0}
 --- !u!70 &1006637892
 CapsuleCollider2D:

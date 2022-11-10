@@ -5,7 +5,7 @@ using UnityEngine;
 public class BulletStormController : MonoBehaviour
 {
 
-    public Shooting shootingScript;
+    public WeaponController shootingScript;
 
     // Start is called before the first frame update
     void Start()
