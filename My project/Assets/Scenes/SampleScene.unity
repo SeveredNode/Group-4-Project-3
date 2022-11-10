@@ -172,11 +172,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 32bd2e16dfafef348ba741dd85515a32, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  shotgunPelletDamage: 2
-  machineGunDamage: 5
-  rocketDamage: 10
+  shotgunPelletDamage: 5
+  machineGunDamage: 3
+  rocketDamage: 8
   explosionDamage: 10
-  bulletStormDamage: 6
+  bulletStormDamage: 3
   shieldDamage: 5
   health: 100
 --- !u!50 &20479310
@@ -1664,11 +1664,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 32bd2e16dfafef348ba741dd85515a32, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  shotgunPelletDamage: 2
-  machineGunDamage: 5
-  rocketDamage: 10
+  shotgunPelletDamage: 5
+  machineGunDamage: 3
+  rocketDamage: 8
   explosionDamage: 10
-  bulletStormDamage: 6
+  bulletStormDamage: 3
   shieldDamage: 5
   health: 100
 --- !u!50 &1198113031
@@ -2097,11 +2097,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 32bd2e16dfafef348ba741dd85515a32, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  shotgunPelletDamage: 2
-  machineGunDamage: 5
-  rocketDamage: 10
+  shotgunPelletDamage: 5
+  machineGunDamage: 3
+  rocketDamage: 8
   explosionDamage: 10
-  bulletStormDamage: 6
+  bulletStormDamage: 3
   shieldDamage: 5
   health: 100
 --- !u!50 &1501564811
@@ -2405,11 +2405,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 32bd2e16dfafef348ba741dd85515a32, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  shotgunPelletDamage: 2
-  machineGunDamage: 5
-  rocketDamage: 10
+  shotgunPelletDamage: 5
+  machineGunDamage: 3
+  rocketDamage: 8
   explosionDamage: 10
-  bulletStormDamage: 6
+  bulletStormDamage: 3
   shieldDamage: 5
   health: 100
 --- !u!50 &1747657735
