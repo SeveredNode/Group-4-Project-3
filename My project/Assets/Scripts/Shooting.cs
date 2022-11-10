@@ -25,7 +25,10 @@ public class Shooting : MonoBehaviour
     Transform scatterShot1;
     Transform scatterShot2;
     float fireAngle;
+    float fireAngle2;
     public bool bulletStormActive;
+    public float bulletStormRotationSpeed;
+    public float bulletStormFireRate;
 
 
     // Start is called before the first frame update
@@ -36,6 +39,7 @@ public class Shooting : MonoBehaviour
         mouseButtonDown = false;
         scatterShot1 = transform;
         scatterShot2 = transform;
+        fireAngle2 = 1f;
     }
 
     private void Start()
@@ -54,7 +58,7 @@ public class Shooting : MonoBehaviour
 
         Shoot();
 
-        
+        ShootBulletStorm();
 
 
     }
@@ -63,7 +67,7 @@ public class Shooting : MonoBehaviour
     private void FixedUpdate()
     {
         frameCounter++;
-        ShootBulletStorm();
+        fireAngle2 = fireAngle2 + bulletStormRotationSpeed;
     }
 
 
@@ -146,16 +150,17 @@ public class Shooting : MonoBehaviour
     {
         if (playerScript.hasBulletStormEquipped && playerScript.hasBulletStorm)
         {
-
-            bulletStormActive = true;
-            fireAngle = fireAngle + 30;
             
-            transform.rotation = Quaternion.Euler(0f, 0f, fireAngle);
+            bulletStormActive = true;
+            
+            
+            transform.rotation = Quaternion.Euler(0f, 0f, fireAngle2);
 
-            if (secondCounter >= .2)
+            if (secondCounter >= bulletStormFireRate)
             {
                 Instantiate(basicBullet, BulletSpawn.position, transform.rotation);
                 secondCounter = 0;
+                frameCounter = 0;
             }
 
         }

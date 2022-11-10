@@ -319,6 +319,8 @@ MonoBehaviour:
   shotgunFireRate: 0.5
   mouseButtonDown: 0
   bulletStormActive: 0
+  bulletStormRotationSpeed: 30
+  bulletStormFireRate: 0.01
 --- !u!1 &519420028
 GameObject:
   m_ObjectHideFlags: 0
