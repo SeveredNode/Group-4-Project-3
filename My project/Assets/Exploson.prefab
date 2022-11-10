@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 7297922030519275153}
   - component: {fileID: 6507614561184885209}
   - component: {fileID: -8134545164249689891}
+  - component: {fileID: -2911175077714190577}
   m_Layer: 0
   m_Name: Exploson
   m_TagString: Untagged
@@ -97,3 +98,19 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 91cfcf130f1e04e40b0cf4288e9d1c11, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!58 &-2911175077714190577
+CircleCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7440456499057306650}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  serializedVersion: 2
+  m_Radius: 0.5

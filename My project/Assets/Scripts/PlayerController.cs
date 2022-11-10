@@ -203,6 +203,12 @@ public class PlayerController : MonoBehaviour
             {
                 RB.AddForce(Vector2.right * bashForce, ForceMode2D.Impulse);
             }
+
+            if (MoveDirection < 0)
+            {
+                RB.AddForce(Vector2.left * bashForce, ForceMode2D.Impulse);
+            }
+
         }
     }
 

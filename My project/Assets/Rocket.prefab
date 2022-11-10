@@ -10,8 +10,9 @@ GameObject:
   m_Component:
   - component: {fileID: 12667606293092888}
   - component: {fileID: 7194257642890841645}
-  - component: {fileID: 6207756610043244910}
   - component: {fileID: 3164875001716051807}
+  - component: {fileID: -8624902545922797616}
+  - component: {fileID: -7056766348219305880}
   m_Layer: 0
   m_Name: Rocket
   m_TagString: Untagged
@@ -86,21 +87,6 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!114 &6207756610043244910
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7043054468976780169}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: dfe54b026e2054149bd4027a8c818f18, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  BulletSpeed: 10
-  BulletRB: {fileID: 3164875001716051807}
-  playerScript: {fileID: 0}
 --- !u!50 &3164875001716051807
 Rigidbody2D:
   serializedVersion: 4
@@ -122,3 +108,35 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 1
   m_Constraints: 0
+--- !u!114 &-8624902545922797616
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7043054468976780169}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: edfdda22e7da5f84da9bc7e5f5dc2aad, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  BulletSpeed: 15
+  RocketRB: {fileID: 3164875001716051807}
+  playerScript: {fileID: 0}
+  explosion: {fileID: 7440456499057306650, guid: 21129b50c69626647852498659ee0277, type: 3}
+--- !u!58 &-7056766348219305880
+CircleCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7043054468976780169}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  serializedVersion: 2
+  m_Radius: 0.5

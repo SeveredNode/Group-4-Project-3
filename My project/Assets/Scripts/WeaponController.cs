@@ -206,6 +206,12 @@ public class WeaponController : MonoBehaviour
 
         }
 
+        if(shieldTimerCount >= shieldDuration)
+        {
+            playerScript.hasShieldEquipped = false;
+        }
+
+
     }
 
 
