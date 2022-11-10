@@ -316,7 +316,7 @@ MonoBehaviour:
   secondCounter: 0
   gunFireRate: 0.1
   rocketFireRate: 1
-  shotgunFireRate: 0.5
+  shotgunFireRate: 0.3
   mouseButtonDown: 0
   bulletStormActive: 0
   bulletStormRotationSpeed: 15
@@ -325,6 +325,8 @@ MonoBehaviour:
   shieldCooldown: 10
   shieldTimerCount: 0
   shieldTimerFrames: 0
+  shieldReady: 0
+  shieldDuration: 5
 --- !u!1 &519420028
 GameObject:
   m_ObjectHideFlags: 0

@@ -108,6 +108,7 @@ public class PlayerController : MonoBehaviour
             hasShotgunEquipped = false;
             hasRocketEquipped = false;
             hasBulletStormEquipped = false;
+            weaponScript.frameCounter = 100;
         }
 
         if (Input.GetKeyDown(KeyCode.Alpha2))
@@ -117,7 +118,7 @@ public class PlayerController : MonoBehaviour
             hasRocketEquipped = false;
             hasShieldEquipped = false;
             hasBulletStormEquipped = false;
-
+            weaponScript.frameCounter = 100;
         }
 
         if (Input.GetKeyDown(KeyCode.Alpha3))
@@ -127,7 +128,7 @@ public class PlayerController : MonoBehaviour
             hasRocketEquipped = true;
             hasShieldEquipped = false;
             hasBulletStormEquipped = false;
-
+            weaponScript.frameCounter = 100;
         }
 
         if (Input.GetKeyDown(KeyCode.Alpha4) && weaponScript.shieldCooldown <= weaponScript.shieldTimerCount)
@@ -137,7 +138,7 @@ public class PlayerController : MonoBehaviour
             hasRocketEquipped = false;
             hasShieldEquipped = true;
             hasBulletStormEquipped = false;
-
+            weaponScript.frameCounter = 100;
         }
 
         if (Input.GetKeyDown(KeyCode.Alpha5))
@@ -147,7 +148,7 @@ public class PlayerController : MonoBehaviour
             hasRocketEquipped = false;
             hasShieldEquipped = false;
             hasBulletStormEquipped = true;
-
+            weaponScript.frameCounter = 100;
         }
 
 

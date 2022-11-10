@@ -18,7 +18,7 @@ public class ShieldController : MonoBehaviour
         playerObject = GameObject.Find("Player");
         playerScript = GameObject.Find("Player").GetComponent<PlayerController>();
         weaponScript = GameObject.Find("ProjectileAimer").GetComponent<WeaponController>();
-        frameCounter = 1;
+        
     }
 
     // Update is called once per frame
@@ -26,12 +26,10 @@ public class ShieldController : MonoBehaviour
     {
         transform.position = playerObject.transform.position;
 
-        if (secondCounter >= weaponScript.shieldCooldown)
-        {
-            playerScript.hasShieldEquipped = false;
-            weaponScript.shieldTimerCount = 0;
+        Destroy(gameObject, weaponScript.shieldDuration);
 
-        }
+
+
 
     }
     private void FixedUpdate()

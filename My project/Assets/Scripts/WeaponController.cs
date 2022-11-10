@@ -34,6 +34,7 @@ public class WeaponController : MonoBehaviour
     public float shieldTimerCount;
     public int shieldTimerFrames;
     public bool shieldReady;
+    public float shieldDuration;
 
 
     // Start is called before the first frame update
@@ -205,7 +206,6 @@ public class WeaponController : MonoBehaviour
 
         }
 
-        
     }
 
 
