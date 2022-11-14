@@ -13,20 +13,40 @@ public class EnemyController : MonoBehaviour
     public float shieldDamage;
     public float health;
 
+    public int frameCounter;
+    public float secondCounter;
+    public float fireRate;
+
+    public GameObject enemyBullet;
+    public WaveCounter waveCounterScript;
+
+    
 
     // Start is called before the first frame update
     void Start()
     {
-        
+        waveCounterScript = GameObject.Find("WaveCounter").GetComponent<WaveCounter>();  
     }
 
     // Update is called once per frame
     void Update()
     {
+        secondCounter = frameCounter / 50;
+
         if (health <= 0)
         {
             Destroy(gameObject);
+            waveCounterScript.enemiesKilled = waveCounterScript.enemiesKilled + 1;
         }
+
+        ManageShooting();
+
+    }
+
+
+    private void FixedUpdate()
+    {
+        frameCounter++;
     }
 
 
@@ -64,5 +84,14 @@ public class EnemyController : MonoBehaviour
     }
 
 
-
+    void ManageShooting()
+    {
+        Vector3 enemyPos;
+        enemyPos = transform.position;
+        if (secondCounter > fireRate)
+        {
+            Instantiate(enemyBullet, enemyPos, transform.rotation);
+            frameCounter = 0;
+        }
+    }
 }

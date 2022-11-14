@@ -12,6 +12,7 @@ TagManager:
   - BulletStormBullet
   - Rocket
   - ShotgunPellet
+  - Wall
   layers:
   - Default
   - TransparentFX
