@@ -164,10 +164,7 @@ public class PlayerController : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D other)
     {
-        if (other.gameObject.CompareTag("Checkpoint"))
-        {
-            SpawnPoint = transform.position;
-        }
+        
     }
 
     private void OnCollisionEnter2D(Collision2D other)

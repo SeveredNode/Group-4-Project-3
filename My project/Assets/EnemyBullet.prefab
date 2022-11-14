@@ -120,5 +120,5 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   player: {fileID: 0}
-  RB: {fileID: 0}
+  RB: {fileID: -1741372864789718373}
   bulletSpeed: 15
