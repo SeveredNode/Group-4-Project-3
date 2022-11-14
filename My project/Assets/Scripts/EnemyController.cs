@@ -13,11 +13,13 @@ public class EnemyController : MonoBehaviour
     public float shieldDamage;
     public float health;
 
+    public WaveCounter waveCounterScript;
+
 
     // Start is called before the first frame update
     void Start()
     {
-        
+        waveCounterScript = GameObject.Find("Player").GetComponent<WaveCounter>();  
     }
 
     // Update is called once per frame
@@ -26,6 +28,8 @@ public class EnemyController : MonoBehaviour
         if (health <= 0)
         {
             Destroy(gameObject);
+            waveCounterScript.enemiesKilled = waveCounterScript.enemiesKilled + 1;
+
         }
     }
 

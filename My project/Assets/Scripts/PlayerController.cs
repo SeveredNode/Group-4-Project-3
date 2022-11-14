@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+
 public class PlayerController : MonoBehaviour
 {
     public float MoveSpeed;
@@ -10,7 +11,8 @@ public class PlayerController : MonoBehaviour
     public float JumpHeight;
     public bool IsJumping;
     public bool DoubleJumpReady;
-    public float Health;
+    public float health;
+    public float maxHealth;
     public float bashForce;
 
     public bool hasShield;
@@ -50,7 +52,7 @@ public class PlayerController : MonoBehaviour
     void KillPlayer()
     {
         transform.position = SpawnPoint;
-        Health = 3;
+        health = 100;
     }
 
 
@@ -63,9 +65,14 @@ public class PlayerController : MonoBehaviour
         ManageWeaponSwapping();
         ShieldBash();
 
-        if (Health <= 0)
+        if (health <= 0)
         {
             KillPlayer();
+        }
+
+        if(health > maxHealth)
+        {
+            health = maxHealth;
         }
 
 
@@ -173,7 +180,7 @@ public class PlayerController : MonoBehaviour
 
         if (other.gameObject.CompareTag("DeathWall"))
         {
-            Health = 0;
+            health = 0;
         }
 
 
