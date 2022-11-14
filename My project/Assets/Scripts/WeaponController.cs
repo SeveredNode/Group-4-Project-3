@@ -199,7 +199,7 @@ public class WeaponController : MonoBehaviour
 
     void ManageShield()
     {
-        if(shieldTimerCount >= shieldCooldown && playerScript.hasShieldEquipped)
+        if(shieldTimerCount >= shieldCooldown && playerScript.hasShieldEquipped && playerScript.hasShield)
         {
 
             Instantiate(shieldObject, transform.position, transform.rotation);
