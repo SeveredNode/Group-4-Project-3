@@ -19,7 +19,7 @@ public class EnemyController : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        waveCounterScript = GameObject.Find("Player").GetComponent<WaveCounter>();  
+        waveCounterScript = GameObject.Find("WaveCounter").GetComponent<WaveCounter>();  
     }
 
     // Update is called once per frame

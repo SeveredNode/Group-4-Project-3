@@ -14,7 +14,7 @@ public class EnemyMovement : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        moveDirection = new Vector2(-1, 0);
+        moveDirection = new Vector2(-1, -3);
         player = GameObject.Find("Player");
         playerScript = GameObject.Find("Player").GetComponent<PlayerController>();
     }
@@ -25,12 +25,12 @@ public class EnemyMovement : MonoBehaviour
 
         if(player.transform.position.x >= transform.position.x)
         {
-            moveDirection = new Vector2(1,0);
+            moveDirection = new Vector2(1,moveDirection.y);
         }
 
         if (player.transform.position.x <= transform.position.x)
         {
-            moveDirection = new Vector2(-1, 0);
+            moveDirection = new Vector2(-1, moveDirection.y);
         }
 
 
@@ -39,15 +39,7 @@ public class EnemyMovement : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D other)
     {
-        if (other.CompareTag("BumperLeft"))
-        {
-            moveDirection.x = 1;
-        }
-
-        if (other.CompareTag("BumperRight"))
-        {
-            moveDirection.x = -1;
-        }
+        
 
     }
 
