@@ -155,6 +155,10 @@ MonoBehaviour:
   bulletStormDamage: 6
   shieldDamage: 5
   health: 100
+  frameCounter: 0
+  secondCounter: 0
+  fireRate: 0
+  enemyBullet: {fileID: 449360803324387826, guid: 85533dc08fd590743b1dc44fe7bd4a7e, type: 3}
   waveCounterScript: {fileID: 0}
 --- !u!114 &4092892726074379680
 MonoBehaviour:
