@@ -27,4 +27,13 @@ public class EnemyBulletController : MonoBehaviour
     {
         Destroy(gameObject, 3);
     }
+
+    private void OnTriggerEnter2D(Collider2D other)
+    {
+        if (other.CompareTag("Shield"))
+        {
+            Destroy(gameObject);
+        }
+    }
+
 }

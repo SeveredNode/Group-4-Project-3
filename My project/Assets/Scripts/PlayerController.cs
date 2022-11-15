@@ -35,6 +35,7 @@ public class PlayerController : MonoBehaviour
     public GameObject rocketUI;
     public GameObject shieldUI;
     public GameObject droneUI;
+    public GameObject explosion;
 
 
 
@@ -67,12 +68,17 @@ public class PlayerController : MonoBehaviour
     private void Awake()
     {
         RB = GetComponent<Rigidbody2D>();
-
+        frameCounter = 0;
     }
 
     void KillPlayer()
     {
-        SceneManager.LoadScene("GameOver");
+        Instantiate(explosion, transform.position, transform.rotation);
+        gameObject.GetComponent<SpriteRenderer>().enabled = false;
+        if (frameCounter > 150)
+        {
+            SceneManager.LoadScene("GameOver");
+        }
     }
 
 
@@ -87,11 +93,11 @@ public class PlayerController : MonoBehaviour
 
         if (health <= 0)
         {
-            animator.SetBool("IsDead", true);
-            KillPlayer();
+            KillPlayer();   
         }
 
-        if(health > maxHealth)
+
+        if (health > maxHealth)
         {
             health = maxHealth;
         }
@@ -102,7 +108,10 @@ public class PlayerController : MonoBehaviour
 
     private void FixedUpdate()
     {
-        
+        if (health <= 0)
+        {
+            frameCounter++;
+        }
     }
 
 

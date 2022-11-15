@@ -18,6 +18,8 @@ public class EnemyController : MonoBehaviour
     public float fireRate;
 
     public GameObject enemyBullet;
+    public GameObject explosion;
+
     public WaveCounter waveCounterScript;
 
     
@@ -35,6 +37,7 @@ public class EnemyController : MonoBehaviour
 
         if (health <= 0)
         {
+            Instantiate(explosion, transform.position, transform.rotation);
             Destroy(gameObject);
             waveCounterScript.enemiesKilled = waveCounterScript.enemiesKilled + 1;
         }
