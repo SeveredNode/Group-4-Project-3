@@ -16,7 +16,7 @@ GameObject:
   - component: {fileID: 4092892726074379680}
   - component: {fileID: 3957663803377438980}
   m_Layer: 0
-  m_Name: Enemy
+  m_Name: JapanEnemy
   m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
