@@ -83,6 +83,7 @@ public class PlayerController : MonoBehaviour
 
         playerAnimation.SetFloat("Speed", Mathf.Abs(RB.velocity.x));
         playerAnimation.SetBool("OnGround", IsJumping);
+        playerAnimation.SetBool("OnGround", DoubleJumpReady);
     }
 
     private void FixedUpdate()
