@@ -152,7 +152,7 @@ MonoBehaviour:
   machineGunDamage: 5
   rocketDamage: 8
   explosionDamage: 10
-  bulletStormDamage: 6
+  bulletStormDamage: 3
   shieldDamage: 5
   health: 30
   frameCounter: 0

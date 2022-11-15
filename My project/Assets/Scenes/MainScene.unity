@@ -1537,8 +1537,8 @@ MonoBehaviour:
   JumpHeight: 16
   IsJumping: 0
   DoubleJumpReady: 0
-  health: 20
-  maxHealth: 20
+  health: 150
+  maxHealth: 150
   bashForce: 50
   enemyBulletDamage: 3
   hasShield: 0
