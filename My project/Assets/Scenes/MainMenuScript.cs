@@ -24,12 +24,12 @@ public class MainMenuScript : MonoBehaviour
 
     public void ShowControls()
     {
-
+        SceneManager.LoadScene("Controls");
     }
 
     public void ShowCredits()
     {
-
+        SceneManager.LoadScene("Credits");
     }
 
     public void QuitGame()
