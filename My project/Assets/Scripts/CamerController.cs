@@ -8,14 +8,15 @@ public class CamerController : MonoBehaviour
     public GameObject Player;
     public Camera MainCamera;
     public float ZoomSpeed;
-
+    public PlayerController playerScript;
 
 
     // Start is called before the first frame update
     void Start()
     {
 
-        ZoomSpeed = 2f;
+        ZoomSpeed = 0f;
+        playerScript = GameObject.Find("Player").GetComponent<PlayerController>();
         
     }
 
@@ -28,10 +29,14 @@ public class CamerController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        transform.position = new Vector3(Player.transform.position.x, Player.transform.position.y, transform.position.z);
-        if (MainCamera.orthographic)
+        if (playerScript.health > 0)
         {
-            MainCamera.orthographicSize -= Input.GetAxis("Mouse ScrollWheel") * ZoomSpeed;
+
+            transform.position = new Vector3(Player.transform.position.x, Player.transform.position.y, transform.position.z);
+            if (MainCamera.orthographic)
+            {
+                MainCamera.orthographicSize -= Input.GetAxis("Mouse ScrollWheel") * ZoomSpeed;
+            }
         }
 
 

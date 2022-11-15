@@ -13,6 +13,7 @@ public class PlayerController : MonoBehaviour
     public float JumpHeight;
     public bool IsJumping;
     public bool DoubleJumpReady;
+    public bool hasExploded;
     public float health;
     public float maxHealth;
     public float bashForce;
@@ -36,6 +37,7 @@ public class PlayerController : MonoBehaviour
     public GameObject shieldUI;
     public GameObject droneUI;
     public GameObject explosion;
+    public GameObject projectileSpawner;
 
 
 
@@ -53,12 +55,14 @@ public class PlayerController : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        hasExploded = false;
         highlight = GameObject.Find("Highlight");
         gunUI = GameObject.Find("GunUI");
         shotgunUI = GameObject.Find("ShotgunUI");
         rocketUI = GameObject.Find("RocketUI");
         shieldUI = GameObject.Find("ShieldUI");
         droneUI = GameObject.Find("DroneUI");
+        projectileSpawner = GameObject.Find("ProjectileSpawner");
         SpawnPoint = transform.position;
         frameCounter = 1;
         weaponScript = GameObject.Find("ProjectileAimer").GetComponent<WeaponController>();
@@ -73,9 +77,17 @@ public class PlayerController : MonoBehaviour
 
     void KillPlayer()
     {
-        Instantiate(explosion, transform.position, transform.rotation);
+        gameObject.GetComponent<CapsuleCollider2D>().enabled = false;
+        RB.gravityScale = 0;
+        if(hasExploded == false)
+        {
+            Instantiate(explosion, transform.position, transform.rotation);
+            hasExploded = true;
+        }
+
         gameObject.GetComponent<SpriteRenderer>().enabled = false;
-        if (frameCounter > 150)
+        projectileSpawner.GetComponent<SpriteRenderer>().enabled = false;
+        if (frameCounter > 100)
         {
             SceneManager.LoadScene("GameOver");
         }
@@ -87,7 +99,10 @@ public class PlayerController : MonoBehaviour
     {
 
         ManageUI();
-        ManageMovement();
+        if (health > 0)
+        {
+            ManageMovement();
+        }
         ManageWeaponSwapping();
         ShieldBash();
 
