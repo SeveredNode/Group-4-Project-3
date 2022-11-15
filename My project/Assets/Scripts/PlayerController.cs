@@ -28,7 +28,14 @@ public class PlayerController : MonoBehaviour
     public bool hasBulletStorm;
     public bool hasBulletStormEquipped;
 
-    
+    public GameObject highlight;
+    public GameObject gunUI;
+    public GameObject shotgunUI;
+    public GameObject rocketUI;
+    public GameObject shieldUI;
+    public GameObject droneUI;
+
+
 
     private Animator playerAnimation;
 
@@ -44,6 +51,12 @@ public class PlayerController : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        highlight = GameObject.Find("Highlight");
+        gunUI = GameObject.Find("GunUI");
+        shotgunUI = GameObject.Find("ShotgunUI");
+        rocketUI = GameObject.Find("RocketUI");
+        shieldUI = GameObject.Find("ShieldUI");
+        droneUI = GameObject.Find("DroneUI");
         SpawnPoint = transform.position;
         frameCounter = 1;
         weaponScript = GameObject.Find("ProjectileAimer").GetComponent<WeaponController>();
@@ -65,8 +78,8 @@ public class PlayerController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
 
+        ManageUI();
         ManageMovement();
         ManageWeaponSwapping();
         ShieldBash();
@@ -223,6 +236,30 @@ public class PlayerController : MonoBehaviour
                 RB.AddForce(Vector2.left * bashForce, ForceMode2D.Impulse);
             }
 
+        }
+    }
+
+    void ManageUI()
+    {
+        if (hasGun)
+        {
+            gunUI.GetComponent<SpriteRenderer>().enabled = true;
+        }
+        if (hasShotgun)
+        {
+            shotgunUI.GetComponent<SpriteRenderer>().enabled = true;
+        }
+        if (hasRocket)
+        {
+            rocketUI.GetComponent<SpriteRenderer>().enabled = true;
+        }
+        if (hasShield)
+        {
+            shieldUI.GetComponent<SpriteRenderer>().enabled = true;
+        }
+        if (hasBulletStorm)
+        {
+            droneUI.GetComponent<SpriteRenderer>().enabled = true;
         }
     }
 
