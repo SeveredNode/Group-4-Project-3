@@ -285,6 +285,7 @@ public class PlayerController : MonoBehaviour
         if (hasGun)
         {
             gunUI.GetComponent<SpriteRenderer>().enabled = true;
+            highlight.GetComponent<SpriteRenderer>().enabled = true;
         }
         if (hasShotgun)
         {

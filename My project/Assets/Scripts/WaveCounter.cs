@@ -77,7 +77,7 @@ public class WaveCounter : MonoBehaviour
     void SpawnEnemiesWave1()
     {
         
-        if (frameCounter > 210 && waveNumber == 1)
+        if (frameCounter > 140 && waveNumber == 1)
         {
             Instantiate(enemyJapan, new Vector3(Random.Range(-15f, +15f), transform.position.x + 15, 0), Quaternion.Euler(0, 0, 0));
             frameCounter = 0;
@@ -97,7 +97,7 @@ public class WaveCounter : MonoBehaviour
     void SpawnEnemiesWave2()
     {
         
-        if (frameCounter > 180 && waveNumber == 2)
+        if (frameCounter > 110 && waveNumber == 2)
         {
             Instantiate(enemyAustralia, new Vector3(Random.Range(-15f, +15f), transform.position.x + 15, 0), Quaternion.Euler(0, 0, 0));
             frameCounter = 0;
@@ -116,7 +116,7 @@ public class WaveCounter : MonoBehaviour
     void SpawnEnemiesWave3()
     {
         
-        if (frameCounter > 130 && waveNumber == 3)
+        if (frameCounter > 90 && waveNumber == 3)
         {
             Instantiate(enemyBrazil, new Vector3(Random.Range(-15f, +15f), transform.position.x + 15, 0), Quaternion.Euler(0, 0, 0));
             frameCounter = 0;
@@ -136,7 +136,7 @@ public class WaveCounter : MonoBehaviour
     void SpawnEnemiesWave4()
     {
         
-        if (frameCounter > 130 && waveNumber == 4)
+        if (frameCounter > 90 && waveNumber == 4)
         {
             Instantiate(enemyKenya, new Vector3(Random.Range(-15f, +15f), transform.position.x + 15, 0), Quaternion.Euler(0, 0, 0));
             frameCounter = 0;
@@ -152,7 +152,7 @@ public class WaveCounter : MonoBehaviour
     void SpawnEnemiesWave5()
     {
         
-        if (frameCounter > 130 && waveNumber == 5)
+        if (frameCounter > 60 && waveNumber == 5)
         {
             Instantiate(enemySpain, new Vector3(Random.Range(-15f, +15f), transform.position.x + 15, 0), Quaternion.Euler(0, 0, 0));
             frameCounter = 0;
@@ -169,28 +169,28 @@ public class WaveCounter : MonoBehaviour
             playerScript.health = playerScript.maxHealth;
         }
 
-        if (enemiesKilled >= 30 && waveNumber == 2)
+        if (enemiesKilled >= 35 && waveNumber == 2)
         {
             waveNumber = 3;
             ClearWave();
             playerScript.health = playerScript.maxHealth;
         }
 
-        if (enemiesKilled >= 45 && waveNumber == 3)
+        if (enemiesKilled >= 55 && waveNumber == 3)
         {
             waveNumber = 4;
             ClearWave();
             playerScript.health = playerScript.maxHealth;
         }
 
-        if (enemiesKilled >= 60 && waveNumber == 4)
+        if (enemiesKilled >= 75 && waveNumber == 4)
         {
             waveNumber = 5;
             ClearWave();
             playerScript.health = playerScript.maxHealth;
         }
 
-        if (enemiesKilled >= 75 && waveNumber == 5)
+        if (enemiesKilled >= 100 && waveNumber == 5)
         {
             SceneManager.LoadScene("GameWin");
         }

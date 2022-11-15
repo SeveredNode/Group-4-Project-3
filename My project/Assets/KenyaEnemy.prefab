@@ -154,7 +154,7 @@ MonoBehaviour:
   explosionDamage: 10
   bulletStormDamage: 3
   shieldDamage: 5
-  health: 30
+  health: 40
   frameCounter: 0
   secondCounter: 0
   fireRate: 0
