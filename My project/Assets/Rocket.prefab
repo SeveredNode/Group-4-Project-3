@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 7194257642890841645}
   - component: {fileID: 3164875001716051807}
   - component: {fileID: -8624902545922797616}
-  - component: {fileID: -7056766348219305880}
+  - component: {fileID: 2740128167970189528}
   m_Layer: 0
   m_Name: Rocket
   m_TagString: Untagged
@@ -124,8 +124,8 @@ MonoBehaviour:
   RocketRB: {fileID: 3164875001716051807}
   playerScript: {fileID: 0}
   explosion: {fileID: 7440456499057306650, guid: 21129b50c69626647852498659ee0277, type: 3}
---- !u!58 &-7056766348219305880
-CircleCollider2D:
+--- !u!70 &2740128167970189528
+CapsuleCollider2D:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -137,6 +137,6 @@ CircleCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
-  serializedVersion: 2
-  m_Radius: 0.5
+  m_Offset: {x: -0.012207343, y: 0.06510865}
+  m_Size: {x: 0.5035651, y: 0.11699054}
+  m_Direction: 1
