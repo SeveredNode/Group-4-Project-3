@@ -14,6 +14,7 @@ public class PlayerController : MonoBehaviour
     public float health;
     public float maxHealth;
     public float bashForce;
+    public float enemyBulletDamage;
 
     public bool hasShield;
     public bool hasShieldEquipped;
@@ -25,6 +26,8 @@ public class PlayerController : MonoBehaviour
     public bool hasShotgunEquipped;
     public bool hasBulletStorm;
     public bool hasBulletStormEquipped;
+
+    
 
     private Animator playerAnimation;
 
@@ -167,7 +170,10 @@ public class PlayerController : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D other)
     {
-        
+        if (other.CompareTag("EnemyBullet"))
+        {
+            health = health - enemyBulletDamage;
+        }
     }
 
     private void OnCollisionEnter2D(Collision2D other)
