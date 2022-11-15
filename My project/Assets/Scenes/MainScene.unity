@@ -1540,6 +1540,7 @@ MonoBehaviour:
   health: 20
   maxHealth: 20
   bashForce: 50
+  enemyBulletDamage: 3
   hasShield: 0
   hasShieldEquipped: 0
   hasRocket: 0
