@@ -47,6 +47,7 @@ public class WeaponController : MonoBehaviour
         scatterShot2 = transform;
         fireAngle2 = 1f;
         shieldTimerFrames = 1;
+        player = GameObject.Find("Player");
     }
 
     private void Start()
@@ -69,6 +70,8 @@ public class WeaponController : MonoBehaviour
         ShootBulletStorm();
 
         ManageShield();
+
+        transform.position = player.transform.position;
 
     }
 
