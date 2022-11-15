@@ -26,6 +26,8 @@ public class PlayerController : MonoBehaviour
     public bool hasBulletStorm;
     public bool hasBulletStormEquipped;
 
+    private Animator playerAnimation;
+
     public WeaponController weaponScript;
     
 
@@ -41,6 +43,7 @@ public class PlayerController : MonoBehaviour
         SpawnPoint = transform.position;
         frameCounter = 1;
         weaponScript = GameObject.Find("ProjectileAimer").GetComponent<WeaponController>();
+        playerAnimation = GetComponent<Animator>();
     }
 
     private void Awake()
@@ -75,8 +78,8 @@ public class PlayerController : MonoBehaviour
             health = maxHealth;
         }
 
-
-
+        playerAnimation.SetFloat("Speed", Mathf.Abs(RB.velocity.x));
+        playerAnimation.SetBool("OnGround", IsJumping);
     }
 
     private void FixedUpdate()
