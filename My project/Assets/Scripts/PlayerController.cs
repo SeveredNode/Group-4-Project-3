@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.Security.Cryptography;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
@@ -37,7 +38,7 @@ public class PlayerController : MonoBehaviour
 
 
 
-    private Animator playerAnimation;
+    private Animator animator;
 
     public WeaponController weaponScript;
     
@@ -60,7 +61,7 @@ public class PlayerController : MonoBehaviour
         SpawnPoint = transform.position;
         frameCounter = 1;
         weaponScript = GameObject.Find("ProjectileAimer").GetComponent<WeaponController>();
-        playerAnimation = GetComponent<Animator>();
+        animator = GetComponent<Animator>();
     }
 
     private void Awake()
@@ -86,6 +87,7 @@ public class PlayerController : MonoBehaviour
 
         if (health <= 0)
         {
+            animator.SetBool("IsDead", true);
             KillPlayer();
         }
 
@@ -94,9 +96,8 @@ public class PlayerController : MonoBehaviour
             health = maxHealth;
         }
 
-        playerAnimation.SetFloat("Speed", Mathf.Abs(RB.velocity.x));
-        playerAnimation.SetBool("OnGround", IsJumping);
-        playerAnimation.SetBool("OnGround", DoubleJumpReady);
+        animator.SetFloat("Speed", Mathf.Abs(MoveDirection));
+       
     }
 
     private void FixedUpdate()
@@ -111,12 +112,28 @@ public class PlayerController : MonoBehaviour
 
         RB.velocity = new Vector2(MoveSpeed * MoveDirection, RB.velocity.y);
 
+        if (MoveDirection > 0)
+        {
+            transform.localScale = new Vector2(2.7f, 2.7f);   
+        }
+        if (MoveDirection < 0)
+        {
+            transform.localScale = new Vector2(-2.7f, 2.7f);
+        }
+       
         if (Input.GetKeyDown(KeyCode.Space) && IsJumping == false)
         {
             RB.AddForce(Vector2.up * JumpHeight * 1.2f, ForceMode2D.Impulse);
             DoubleJumpReady = true;
         }
-
+        if (IsJumping == true)
+        {
+            animator.SetBool("IsJumping", true);
+        }
+        if (IsJumping == false)
+        {
+            animator.SetBool("IsJumping", false);
+        }
         if (Input.GetKeyDown(KeyCode.Space) && DoubleJumpReady == true && IsJumping == true)
         {
             RB.velocity = new Vector2(MoveSpeed * MoveDirection, 0);
