@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 
 public class PlayerController : MonoBehaviour
@@ -57,8 +58,7 @@ public class PlayerController : MonoBehaviour
 
     void KillPlayer()
     {
-        transform.position = SpawnPoint;
-        health = 100;
+        SceneManager.LoadScene("GameOver");
     }
 
 

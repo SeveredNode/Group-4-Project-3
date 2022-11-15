@@ -192,8 +192,7 @@ public class WaveCounter : MonoBehaviour
 
         if (enemiesKilled >= 75 && waveNumber == 5)
         {
-            ClearWave();
-            playerScript.health = playerScript.maxHealth;
+            SceneManager.LoadScene("GameWin");
         }
     }
 
