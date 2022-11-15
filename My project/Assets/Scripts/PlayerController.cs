@@ -189,7 +189,7 @@ public class PlayerController : MonoBehaviour
 
     private void OnCollisionExit2D(Collision2D other)
     {
-        if (other.gameObject.CompareTag("platform") || other.gameObject.CompareTag("EnemyPlatform"))
+        if (other.gameObject.CompareTag("platform"))
         {
             IsJumping = true;
         }
